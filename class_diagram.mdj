@@ -1658,7 +1658,7 @@
 											"top": 1163,
 											"width": 199.09423828125,
 											"height": 13,
-											"text": "+deletGroup()",
+											"text": "+deleteGroup()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2279,9 +2279,9 @@
 										"$ref": "AAAAAAFthB/8ZrY1qHM="
 									},
 									"font": "Arial;13;0",
-									"left": 446,
+									"left": 445,
 									"top": 403,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -3980,7 +3980,7 @@
 											"top": 349,
 											"width": 113.43896484375,
 											"height": 13,
-											"text": "+setGrouptName()",
+											"text": "+setGroupName()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -4945,9 +4945,9 @@
 										"$ref": "AAAAAAFthCbsD74mfuU="
 									},
 									"font": "Arial;13;0",
-									"left": 420,
+									"left": 419,
 									"top": 264,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -6642,9 +6642,9 @@
 										"$ref": "AAAAAAFthEGMQNez9Fw="
 									},
 									"font": "Arial;13;0",
-									"left": 902,
+									"left": 901,
 									"top": 368,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -6851,9 +6851,9 @@
 										"$ref": "AAAAAAFthEIc2Ni2DQM="
 									},
 									"font": "Arial;13;0",
-									"left": 894,
+									"left": 893,
 									"top": 586,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -7184,9 +7184,9 @@
 										"$ref": "AAAAAAFthEQuXd2O8Q4="
 									},
 									"font": "Arial;13;0",
-									"left": 985,
+									"left": 984,
 									"top": 307,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -8048,7 +8048,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFthBdanrTNxP8="
 							},
-							"name": "deletGroup"
+							"name": "deleteGroup"
 						}
 					]
 				},
@@ -8367,7 +8367,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFthCP0VbrOJd0="
 							},
-							"name": "setGrouptName"
+							"name": "setGroupName"
 						}
 					]
 				},
@@ -8763,9 +8763,9 @@
 												"$ref": "AAAAAAFthEelq+PsjaY="
 											},
 											"font": "Arial;13;0",
-											"left": 318.97900390625,
+											"left": 314.58642578125,
 											"top": 229,
-											"width": 115.9052734375,
+											"width": 102.791015625,
 											"height": 13,
 											"text": "SequenceDiagram1"
 										},
@@ -8778,7 +8778,7 @@
 											"font": "Arial;13;1",
 											"left": 253,
 											"top": 229,
-											"width": 60.97900390625,
+											"width": 56.58642578125,
 											"height": 13,
 											"text": "interaction"
 										}
