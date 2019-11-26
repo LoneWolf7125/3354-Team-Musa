@@ -106,19 +106,20 @@ public class MainActivity extends AppCompatActivity implements
     /**
      * Compress a bitmap by the @param "quality"
      * Quality can be anywhere from 1-100 : 100 being the highest quality.
-     * @param bitmap
-     * @param quality
-     * @return
+     * @param bitmap compressed bitmap
+     * @param quality quality of bitmap
      */
-    public Bitmap compressBitmap(Bitmap bitmap, int quality){
+    //     * @return bitmap
+
+    public void compressBitmap(Bitmap bitmap, int quality){
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, quality, stream);
-        return bitmap;
+        //return bitmap;
     }
 
     /**
      * Generalized method for asking permission. Can pass any array of permissions
-     * @param permissions
+     * @param permissions user's set permissions
      */
     public void verifyPermissions(String[] permissions){
         Log.d(TAG, "verifyPermissions: asking user for permissions.");
@@ -132,8 +133,8 @@ public class MainActivity extends AppCompatActivity implements
     /**
      * Checks to see if permission was granted for the passed parameters
      * ONLY ONE PERMISSION MAYT BE CHECKED AT A TIME
-     * @param permission
-     * @return
+     * @param permission user's set permissions
+     * @return boolean value
      */
     public boolean checkPermission(String[] permission){
         Log.d(TAG, "checkPermission: checking permissions for:" + permission[0]);

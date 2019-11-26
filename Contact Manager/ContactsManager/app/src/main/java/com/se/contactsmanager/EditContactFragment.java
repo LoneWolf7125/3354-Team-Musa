@@ -45,7 +45,7 @@ public class EditContactFragment extends Fragment implements ChangePhotoDialog.O
     private EditText mPhoneNumber, mName, mEmail;
     private CircleImageView mContactImage;
     private Spinner mSelectDevice;
-    private Toolbar toolbar;
+    //private Toolbar toolbar;
     private String mSelectedImagePath;
     private int mPreviousKeyStroke;
 
@@ -58,7 +58,7 @@ public class EditContactFragment extends Fragment implements ChangePhotoDialog.O
         mEmail = (EditText) view.findViewById(R.id.etContactEmail);
         mContactImage = (CircleImageView) view.findViewById(R.id.contactImage);
         mSelectDevice = (Spinner) view.findViewById(R.id.selectDevice);
-        toolbar = (Toolbar) view.findViewById(R.id.editContactToolbar);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.editContactToolbar);
         Log.d(TAG, "onCreateView: started.");
 
         mSelectedImagePath = null;
@@ -221,7 +221,7 @@ public class EditContactFragment extends Fragment implements ChangePhotoDialog.O
 
     /**
      * Retrieves the selected contact from the bundle (coming from MainActivity)
-     * @return
+     * @return null
      */
     private Contact getContactFromBundle(){
         Log.d(TAG, "getContactFromBundle: arguments: " + getArguments());
@@ -236,7 +236,7 @@ public class EditContactFragment extends Fragment implements ChangePhotoDialog.O
 
     /**
      * Retrieves the selected image from the bundle (coming from ChangePhotoDialog)
-     * @param bitmap
+     * @param bitmap compressed bitmap
      */
     @Override
     public void getBitmapImage(Bitmap bitmap) {
@@ -259,10 +259,12 @@ public class EditContactFragment extends Fragment implements ChangePhotoDialog.O
             UniversalImageLoader.setImage(imagePath, mContactImage, null, "");
         }
     }
-
+}
+/*
     /**
      * Initialize the onTextChangeListener for formatting the phonenumber
      */
+    /*
     private void initOnTextChangeListener(){
 
         mPhoneNumber.setOnKeyListener(new View.OnKeyListener() {
@@ -320,7 +322,7 @@ public class EditContactFragment extends Fragment implements ChangePhotoDialog.O
         });
     }
 }
-
+*/
 
 
 

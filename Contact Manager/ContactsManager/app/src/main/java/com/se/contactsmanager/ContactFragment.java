@@ -31,7 +31,7 @@ public class ContactFragment extends Fragment{
     private static final String TAG = "ContactFragment";
 
     public interface OnEditContactListener{
-        public void onEditcontactSelected(Contact contact);
+        void onEditcontactSelected(Contact contact);
     }
 
     OnEditContactListener mOnEditContactListener;
@@ -43,7 +43,7 @@ public class ContactFragment extends Fragment{
         setArguments(new Bundle());
     }
 
-    private Toolbar toolbar;
+    //private Toolbar toolbar;
     private Contact mContact;
     private TextView mContactName;
     private CircleImageView mContactImage;
@@ -53,7 +53,7 @@ public class ContactFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
-        toolbar = (Toolbar) view.findViewById(R.id.contactToolbar);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.contactToolbar);
         mContactName = (TextView) view.findViewById(R.id.contactName);
         mContactImage = (CircleImageView) view.findViewById(R.id.contactImage);
         mListView = (ListView) view.findViewById(R.id.lvContactProperties);
@@ -159,8 +159,9 @@ public class ContactFragment extends Fragment{
 
     /**
      * Retrieves the selected contact from the bundle (coming from MainActivity)
-     * @return
+     * @return null
      */
+    // Can be changed to void type
     private Contact getContactFromBundle(){
         Log.d(TAG, "getContactFromBundle: arguments: " + getArguments());
 

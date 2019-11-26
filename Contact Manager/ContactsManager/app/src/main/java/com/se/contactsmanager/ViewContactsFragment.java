@@ -32,17 +32,17 @@ import com.se.contactsmanager.models.Contact;
 public class ViewContactsFragment extends Fragment {
 
     private static final String TAG = "ViewContactsFragment";
-    private String testImageURL = "pbs.twimg.com/profile_images/616076655547682816/6gMRtQyY.jpg";
+    //private String testImageURL = "pbs.twimg.com/profile_images/616076655547682816/6gMRtQyY.jpg";
 
 
 
     public interface OnContactSelectedListener{
-        public void OnContactSelected(Contact con);
+        void OnContactSelected(Contact con);
     }
     OnContactSelectedListener mContactListener;
 
     public interface OnAddContactListener{
-        public void onAddContact();
+        void onAddContact();
     }
     OnAddContactListener mOnAddContact;
 
@@ -211,7 +211,7 @@ public class ViewContactsFragment extends Fragment {
 
     /**
      * Sets the appbar state for either the search 'mode' or 'standard' mode
-     * @param state
+     * @param state App state
      */
     private void setAppBarState(int state) {
         Log.d(TAG, "setAppBarState: changing app bar state to: " + state);
