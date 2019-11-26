@@ -37,7 +37,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
     private EditText mPhoneNumber, mName, mEmail;
     private CircleImageView mContactImage;
     private Spinner mSelectDevice;
-    private Toolbar toolbar;
+    //private Toolbar toolbar;
     private String mSelectedImagePath;
     private int mPreviousKeyStroke;
 
@@ -50,7 +50,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
         mEmail = (EditText) view.findViewById(R.id.etContactEmail);
         mContactImage = (CircleImageView) view.findViewById(R.id.contactImage);
         mSelectDevice = (Spinner) view.findViewById(R.id.selectDevice);
-        toolbar = (Toolbar) view.findViewById(R.id.editContactToolbar);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.editContactToolbar);
         Log.d(TAG, "onCreateView: started.");
 
         mSelectedImagePath = null;
@@ -220,7 +220,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
 
     /**
      * Retrieves the selected image from the bundle (coming from ChangePhotoDialog)
-     * @param bitmap
+     * @param bitmap compressed bitmap
      */
     @Override
     public void getBitmapImage(Bitmap bitmap) {
