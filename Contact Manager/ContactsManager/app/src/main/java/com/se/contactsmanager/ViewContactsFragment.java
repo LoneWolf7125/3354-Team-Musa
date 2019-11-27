@@ -3,7 +3,7 @@ package com.se.contactsmanager;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Environment;
+//import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -21,9 +21,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+//import java.io.File;
+//import java.io.FileWriter;
+//import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -143,6 +143,7 @@ public class ViewContactsFragment extends Fragment {
             ));
         }
 
+        /*
         final String FILE_NAME = "save";
         File saveFile = new File(Environment.getDataDirectory(), FILE_NAME);
         try {
@@ -151,6 +152,7 @@ public class ViewContactsFragment extends Fragment {
             writer.close();
         }
         catch (IOException ignore) {}
+         */
 
         //Log.d(TAG, "setupContactsManager: image url: " + contacts.get(0).getProfileImage());
 
