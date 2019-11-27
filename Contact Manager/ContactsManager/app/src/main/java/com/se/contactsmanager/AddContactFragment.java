@@ -66,13 +66,13 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
 
-        //navigation for the backarrow
+        //navigation for the back-arrow
         ImageView ivBackArrow = (ImageView) view.findViewById(R.id.ivBackArrow);
         ivBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked back arrow.");
-                //remove previous fragment from the backstack (therefore navigating back)
+                //remove previous fragment from the back-stack (therefore navigating back)
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });

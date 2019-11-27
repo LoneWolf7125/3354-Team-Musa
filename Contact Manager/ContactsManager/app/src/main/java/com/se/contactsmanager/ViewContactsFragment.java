@@ -3,6 +3,7 @@ package com.se.contactsmanager;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+//import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +21,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+//import java.io.File;
+//import java.io.FileWriter;
+//import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -33,8 +37,6 @@ public class ViewContactsFragment extends Fragment {
 
     private static final String TAG = "ViewContactsFragment";
     //private String testImageURL = "pbs.twimg.com/profile_images/616076655547682816/6gMRtQyY.jpg";
-
-
 
     public interface OnContactSelectedListener{
         void OnContactSelected(Contact con);
@@ -120,20 +122,9 @@ public class ViewContactsFragment extends Fragment {
     //
     private void setupContactsManager(){
         final ArrayList<Contact> contacts = new ArrayList<>();
-//        contacts.add(new Contact("Gary the Guy", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
+//      contacts.add(new Contact("Gary the Guy", "(604) 855-1111", "Mobile", "mitch@tabian.ca", testImageURL));
+//      contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile", "mitch@tabian.ca", testImageURL));
+
         DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
         Cursor cursor = databaseHelper.getAllContacts();
 
@@ -141,6 +132,7 @@ public class ViewContactsFragment extends Fragment {
         if(!cursor.moveToNext()){
             Toast.makeText(getActivity(), "There are no contacts to show", Toast.LENGTH_SHORT).show();
         }
+
         while(cursor.moveToNext()){
             contacts.add(new Contact(
                     cursor.getString(1),//name
@@ -151,9 +143,20 @@ public class ViewContactsFragment extends Fragment {
             ));
         }
 
+        /*
+        final String FILE_NAME = "save";
+        File saveFile = new File(Environment.getDataDirectory(), FILE_NAME);
+        try {
+            FileWriter writer = new FileWriter(saveFile);
+            writer.write(databaseHelper.getAllContacts().toString());
+            writer.close();
+        }
+        catch (IOException ignore) {}
+         */
+
         //Log.d(TAG, "setupContactsManager: image url: " + contacts.get(0).getProfileImage());
 
-        //sort the arraylist based on the contact name
+        //sort the array-list based on the contact name
         Collections.sort(contacts, new Comparator<Contact>() {
             @Override
             public int compare(Contact o1, Contact o2) {

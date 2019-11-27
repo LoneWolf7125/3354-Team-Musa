@@ -66,13 +66,13 @@ public class ContactFragment extends Fragment{
 
         init();
 
-        //navigation for the backarrow
+        //navigation for the back-arrow
         ImageView ivBackArrow = (ImageView) view.findViewById(R.id.ivBackArrow);
         ivBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked back arrow.");
-                //remove previous fragment from the backstack (therefore navigating back)
+                //remove previous fragment from the back-stack (therefore navigating back)
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
@@ -128,7 +128,7 @@ public class ContactFragment extends Fragment{
                         //clear the arguments ont he current bundle since the contact is deleted
                         this.getArguments().clear();
 
-                        //remove previous fragemnt from the backstack (therefore navigating back)
+                        //remove previous fragment from the back-stack (therefore navigating back)
                         getActivity().getSupportFragmentManager().popBackStack();
                     }
                     else{
@@ -149,7 +149,7 @@ public class ContactFragment extends Fragment{
         while(cursor.moveToNext()){
             contactID = cursor.getInt(0);
         }
-        if(contactID > -1){ // If the contact doesn't still exists then anvigate back by popping the stack
+        if(contactID > -1){ // If the contact doesn't still exists then navigate back by popping the stack
             init();
         }else{
             this.getArguments().clear(); //optional clear arguments but not necessary
