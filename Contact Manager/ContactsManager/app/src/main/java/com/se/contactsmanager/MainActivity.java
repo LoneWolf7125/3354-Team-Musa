@@ -80,9 +80,7 @@ public class MainActivity extends AppCompatActivity implements
 
         initImageLoader();
 
-
         init();
-
     }
 
     /**
@@ -91,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements
     private void init(){
         ViewContactsFragment fragment = new ViewContactsFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        // reaplce whatever is in the fragment_container view with this fragment,
+        // replace whatever is in the fragment_container view with this fragment,
         // amd add the transaction to the back stack so the user can navigate back
         transaction.replace(R.id.fragment_container, fragment);
         transaction.addToBackStack(null);

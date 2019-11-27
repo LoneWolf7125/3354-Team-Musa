@@ -47,7 +47,7 @@ public class EditContactFragment extends Fragment implements ChangePhotoDialog.O
     private Spinner mSelectDevice;
     //private Toolbar toolbar;
     private String mSelectedImagePath;
-    private int mPreviousKeyStroke;
+    //private int mPreviousKeyStroke;
 
     @Nullable
     @Override
