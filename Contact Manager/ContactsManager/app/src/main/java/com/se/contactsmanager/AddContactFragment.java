@@ -58,7 +58,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
         //load the default images by causing an error
         UniversalImageLoader.setImage(null, mContactImage, null, "");
 
-        //set the heading for the toolbar
+        //set the heading the for the toolbar
         TextView heading = (TextView) view.findViewById(R.id.textContactToolbar);
         heading.setText(getString(R.string.add_contact));
 
@@ -102,7 +102,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
             }
         });
 
-        //set onclicklisten to the 'checkmar' icon for saving a contact
+        //set onclicklistenre to the 'checkmar' icon for saving a contact
         ImageView confirmNewContact = (ImageView) view.findViewById(R.id.ivCheckMark);
         confirmNewContact.setOnClickListener(new View.OnClickListener() {
             @Override

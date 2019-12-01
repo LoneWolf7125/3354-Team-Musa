@@ -37,11 +37,13 @@ public class ContactPropertyListAdapter extends ArrayAdapter<String> {
         this.mProperties = properties;
     }
 
+    //---------------------------Stuff to change--------------------------------------------
     private static class ViewHolder{
         TextView property;
         ImageView rightIcon;
         ImageView leftIcon;
     }
+    //--------------------------------------------------------------------------------------
 
     @NonNull
     @Override

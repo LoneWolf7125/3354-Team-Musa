@@ -86,7 +86,7 @@ public class ChangePhotoDialog extends DialogFragment{
         super.onActivityResult(requestCode, resultCode, data);
 
         /*
-        Results when taking a new image with camera
+        REsults when taking a new image with camera
          */
         if(requestCode == Init.CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK){
             Log.d(TAG, "onActivityResult: done taking a picture.");
