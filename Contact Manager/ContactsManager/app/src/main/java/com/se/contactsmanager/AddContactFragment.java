@@ -37,7 +37,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
     private EditText mPhoneNumber, mName, mEmail;
     private CircleImageView mContactImage;
     private Spinner mSelectDevice;
-    //private Toolbar toolbar;
+    private Toolbar toolbar;
     private String mSelectedImagePath;
     private int mPreviousKeyStroke;
 
@@ -50,7 +50,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
         mEmail = (EditText) view.findViewById(R.id.etContactEmail);
         mContactImage = (CircleImageView) view.findViewById(R.id.contactImage);
         mSelectDevice = (Spinner) view.findViewById(R.id.selectDevice);
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.editContactToolbar);
+        toolbar = (Toolbar) view.findViewById(R.id.editContactToolbar);
         Log.d(TAG, "onCreateView: started.");
 
         mSelectedImagePath = null;
@@ -58,7 +58,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
         //load the default images by causing an error
         UniversalImageLoader.setImage(null, mContactImage, null, "");
 
-        //set the heading the for the toolbar
+        //set the heading for the toolbar
         TextView heading = (TextView) view.findViewById(R.id.textContactToolbar);
         heading.setText(getString(R.string.add_contact));
 
@@ -66,13 +66,13 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
 
-        //navigation for the back-arrow
+        //navigation for the backarrow
         ImageView ivBackArrow = (ImageView) view.findViewById(R.id.ivBackArrow);
         ivBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked back arrow.");
-                //remove previous fragment from the back-stack (therefore navigating back)
+                //remove previous fragment from the backstack (therefore navigating back)
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
@@ -102,7 +102,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
             }
         });
 
-        //set onclicklistenre to the 'checkmar' icon for saving a contact
+        //set onclicklisten to the 'checkmar' icon for saving a contact
         ImageView confirmNewContact = (ImageView) view.findViewById(R.id.ivCheckMark);
         confirmNewContact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,7 +220,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
 
     /**
      * Retrieves the selected image from the bundle (coming from ChangePhotoDialog)
-     * @param bitmap compressed bitmap
+     * @param bitmap
      */
     @Override
     public void getBitmapImage(Bitmap bitmap) {

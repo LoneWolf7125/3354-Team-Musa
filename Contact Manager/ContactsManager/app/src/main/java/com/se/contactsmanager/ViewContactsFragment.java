@@ -3,7 +3,6 @@ package com.se.contactsmanager;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
-//import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -21,9 +20,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-//import java.io.File;
-//import java.io.FileWriter;
-//import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -36,15 +32,18 @@ import com.se.contactsmanager.models.Contact;
 public class ViewContactsFragment extends Fragment {
 
     private static final String TAG = "ViewContactsFragment";
-    //private String testImageURL = "pbs.twimg.com/profile_images/616076655547682816/6gMRtQyY.jpg";
+    private String testImageMale = "https://icon-library.net//images/default-profile-icon/default-profile-icon-18.jpg";
+    private String testImageFemale = "http://www.herzing.ca/wp-content/uploads/2017/03/testimonial-thumbnail-default-female-2-150x150.png";
+
+
 
     public interface OnContactSelectedListener{
-        void OnContactSelected(Contact con);
+        public void OnContactSelected(Contact con);
     }
     OnContactSelectedListener mContactListener;
 
     public interface OnAddContactListener{
-        void onAddContact();
+        public void onAddContact();
     }
     OnAddContactListener mOnAddContact;
 
@@ -122,9 +121,20 @@ public class ViewContactsFragment extends Fragment {
     //
     private void setupContactsManager(){
         final ArrayList<Contact> contacts = new ArrayList<>();
-//      contacts.add(new Contact("Gary the Guy", "(604) 855-1111", "Mobile", "mitch@tabian.ca", testImageURL));
-//      contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile", "mitch@tabian.ca", testImageURL));
-
+        contacts.add(new Contact("John Smith", "(232) 343-2324", "Mobile","jsmith@hotmail.com", testImageMale));
+        contacts.add(new Contact("Harry West", "(346) 643-3452", "Mobile","harryw33@gmail.com", testImageMale));
+        contacts.add(new Contact("Angela Garland", "(643) 543-2467", "Work","garlandiscool@gmail.com", testImageFemale));
+        contacts.add(new Contact("Dominique Wilkins", "(844) 085-2346", "Mobile","dwilk392@yahoo.com", testImageMale));
+        contacts.add(new Contact("Jerry Stone", "(182) 342-5235", "Mobile","j3stone@gmail.com", testImageMale));
+        contacts.add(new Contact("Mitch Robinson", "(865) 086-9564", "Work","robinson3298@yahoo.com", testImageMale));
+        contacts.add(new Contact("Scott Terry", "(927) 493-9744", "Work","scotty493@gmail.com", testImageMale));
+        contacts.add(new Contact("Jessica Glen", "(038) 937-0376", "Work","jdg093@hotmail.com", testImageFemale));
+        contacts.add(new Contact("Mary Anthony", "(973) 408-6372", "Work","mxa493033@utdallas.edu", testImageFemale));
+        contacts.add(new Contact("Emily Cross", "(638) 018-3917", "Mobile","emilycross@gmail.com", testImageFemale));
+        contacts.add(new Contact("Jacob Armstrong", "(673) 163-1728", "Work","armstrong39482@yahoo.com", testImageMale));
+        contacts.add(new Contact("Isaac Feller", "(127) 097-8963", "Mobile","ifeller392@gmail.com", testImageMale));
+        contacts.add(new Contact("Robert Ramsey", "(536) 297-2583", "Work","robram3938@hotmail.com", testImageMale));
+        contacts.add(new Contact("Dave Chapelle", "(903) 321-8927", "Mobile","chapelle9289@gmail.com", testImageMale));
         DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
         Cursor cursor = databaseHelper.getAllContacts();
 
@@ -132,7 +142,6 @@ public class ViewContactsFragment extends Fragment {
         if(!cursor.moveToNext()){
             Toast.makeText(getActivity(), "There are no contacts to show", Toast.LENGTH_SHORT).show();
         }
-
         while(cursor.moveToNext()){
             contacts.add(new Contact(
                     cursor.getString(1),//name
@@ -143,20 +152,9 @@ public class ViewContactsFragment extends Fragment {
             ));
         }
 
-        /*
-        final String FILE_NAME = "save";
-        File saveFile = new File(Environment.getDataDirectory(), FILE_NAME);
-        try {
-            FileWriter writer = new FileWriter(saveFile);
-            writer.write(databaseHelper.getAllContacts().toString());
-            writer.close();
-        }
-        catch (IOException ignore) {}
-         */
-
         //Log.d(TAG, "setupContactsManager: image url: " + contacts.get(0).getProfileImage());
 
-        //sort the array-list based on the contact name
+        //sort the arraylist based on the contact name
         Collections.sort(contacts, new Comparator<Contact>() {
             @Override
             public int compare(Contact o1, Contact o2) {
@@ -214,7 +212,7 @@ public class ViewContactsFragment extends Fragment {
 
     /**
      * Sets the appbar state for either the search 'mode' or 'standard' mode
-     * @param state App state
+     * @param state
      */
     private void setAppBarState(int state) {
         Log.d(TAG, "setAppBarState: changing app bar state to: " + state);

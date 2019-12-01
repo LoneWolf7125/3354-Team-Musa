@@ -23,6 +23,7 @@ import com.se.contactsmanager.R;
 import com.se.contactsmanager.models.Contact;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+//Adapting lists of objects to a ListView
 public class CustomListAdapter extends ArrayAdapter<Contact> {
 
     private LayoutInflater mInflater;
@@ -39,10 +40,11 @@ public class CustomListAdapter extends ArrayAdapter<Contact> {
         this.mContext = context;
         mAppend = append;
         this.mContacts = contacts;
-        arrayList = new ArrayList<>();
+        arrayList = new ArrayList<>(); //used for search bar
         this.arrayList.addAll(mContacts);
     }
 
+    //load widgets in memory ahead of time
     private static class ViewHolder{
         TextView name;
         CircleImageView contactImage;
@@ -53,19 +55,14 @@ public class CustomListAdapter extends ArrayAdapter<Contact> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        /*
-        ************ ViewHolder Build Pattern Start ************
-         */
         final ViewHolder holder;
-
+        //load widgets in memory ahead of time
         if(convertView == null){
             convertView = mInflater.inflate(layoutResource, parent, false);
             holder = new ViewHolder();
 
-            //---------------------------Stuff to change--------------------------------------------
             holder.name = (TextView) convertView.findViewById(R.id.contactName);
             holder.contactImage = (CircleImageView) convertView.findViewById(R.id.contactImage);
-            //--------------------------------------------------------------------------------------
 
             holder.mProgressBar = (ProgressBar) convertView.findViewById(R.id.contactProgressBar);
 
@@ -75,7 +72,6 @@ public class CustomListAdapter extends ArrayAdapter<Contact> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        //---------------------------Stuff to change--------------------------------------------
         String name_ = getItem(position).getName();
         String imagePath = getItem(position).getProfileImage();
         holder.name.setText(name_);
@@ -103,7 +99,6 @@ public class CustomListAdapter extends ArrayAdapter<Contact> {
                 holder.mProgressBar.setVisibility(View.GONE);
             }
         });
-        //--------------------------------------------------------------------------------------
 
         return convertView;
     }

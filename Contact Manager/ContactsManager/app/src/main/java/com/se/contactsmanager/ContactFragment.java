@@ -31,19 +31,19 @@ public class ContactFragment extends Fragment{
     private static final String TAG = "ContactFragment";
 
     public interface OnEditContactListener{
-        void onEditcontactSelected(Contact contact);
+        public void onEditcontactSelected(Contact contact);
     }
 
     OnEditContactListener mOnEditContactListener;
 
 
-    //This will evade the nullpointer exception whena adding to a new bundle from MainActivity
+    //This will evade the null pointer exception when adding to a new bundle from MainActivity
     public ContactFragment(){
         super();
         setArguments(new Bundle());
     }
 
-    //private Toolbar toolbar;
+    private Toolbar toolbar;
     private Contact mContact;
     private TextView mContactName;
     private CircleImageView mContactImage;
@@ -53,7 +53,7 @@ public class ContactFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.contactToolbar);
+        toolbar = (Toolbar) view.findViewById(R.id.contactToolbar);
         mContactName = (TextView) view.findViewById(R.id.contactName);
         mContactImage = (CircleImageView) view.findViewById(R.id.contactImage);
         mListView = (ListView) view.findViewById(R.id.lvContactProperties);
@@ -66,13 +66,13 @@ public class ContactFragment extends Fragment{
 
         init();
 
-        //navigation for the back-arrow
+        //navigation for the backarrow
         ImageView ivBackArrow = (ImageView) view.findViewById(R.id.ivBackArrow);
         ivBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked back arrow.");
-                //remove previous fragment from the back-stack (therefore navigating back)
+                //remove previous fragment from the backstack (therefore navigating back)
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
@@ -125,10 +125,10 @@ public class ContactFragment extends Fragment{
                     if(databaseHelper.deleteContact(contactID) > 0){
                         Toast.makeText(getActivity(), "Contact Deleted", Toast.LENGTH_SHORT).show();
 
-                        //clear the arguments ont he current bundle since the contact is deleted
+                        //clear the arguments on the current bundle since the contact is deleted
                         this.getArguments().clear();
 
-                        //remove previous fragment from the back-stack (therefore navigating back)
+                        //remove previous fragemnt from the backstack (therefore navigating back)
                         getActivity().getSupportFragmentManager().popBackStack();
                     }
                     else{
@@ -159,9 +159,8 @@ public class ContactFragment extends Fragment{
 
     /**
      * Retrieves the selected contact from the bundle (coming from MainActivity)
-     * @return null
+     * @return
      */
-    // Can be changed to void type
     private Contact getContactFromBundle(){
         Log.d(TAG, "getContactFromBundle: arguments: " + getArguments());
 
