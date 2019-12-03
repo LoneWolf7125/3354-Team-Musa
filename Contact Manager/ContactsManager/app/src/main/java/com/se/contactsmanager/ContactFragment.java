@@ -37,7 +37,7 @@ public class ContactFragment extends Fragment{
     OnEditContactListener mOnEditContactListener;
 
 
-    //This will evade the nullpointer exception whena adding to a new bundle from MainActivity
+    //This will evade the null pointer exception when adding to a new bundle from MainActivity
     public ContactFragment(){
         super();
         setArguments(new Bundle());
@@ -125,7 +125,7 @@ public class ContactFragment extends Fragment{
                     if(databaseHelper.deleteContact(contactID) > 0){
                         Toast.makeText(getActivity(), "Contact Deleted", Toast.LENGTH_SHORT).show();
 
-                        //clear the arguments ont he current bundle since the contact is deleted
+                        //clear the arguments on the current bundle since the contact is deleted
                         this.getArguments().clear();
 
                         //remove previous fragemnt from the backstack (therefore navigating back)
@@ -149,7 +149,7 @@ public class ContactFragment extends Fragment{
         while(cursor.moveToNext()){
             contactID = cursor.getInt(0);
         }
-        if(contactID > -1){ // If the contact doesn't still exists then anvigate back by popping the stack
+        if(contactID > -1){ // If the contact doesn't still exists then navigate back by popping the stack
             init();
         }else{
             this.getArguments().clear(); //optional clear arguments but not necessary

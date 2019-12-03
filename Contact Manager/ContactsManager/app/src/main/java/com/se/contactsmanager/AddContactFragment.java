@@ -43,7 +43,8 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         View view = inflater.inflate(R.layout.fragment_addcontact, container, false);
         mPhoneNumber = (EditText) view.findViewById(R.id.etContactPhone);
         mName = (EditText) view.findViewById(R.id.etContactName);
@@ -58,7 +59,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
         //load the default images by causing an error
         UniversalImageLoader.setImage(null, mContactImage, null, "");
 
-        //set the heading the for the toolbar
+        //set the heading for the toolbar
         TextView heading = (TextView) view.findViewById(R.id.textContactToolbar);
         heading.setText(getString(R.string.add_contact));
 
@@ -76,7 +77,6 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-
 
         // initiate the dialog box for choosing an image
         ImageView ivCamera = (ImageView) view.findViewById(R.id.ivCamera);
@@ -102,7 +102,7 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
             }
         });
 
-        //set onclicklistenre to the 'checkmar' icon for saving a contact
+        //set onclicklisten to the 'checkmar' icon for saving a contact
         ImageView confirmNewContact = (ImageView) view.findViewById(R.id.ivCheckMark);
         confirmNewContact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +124,6 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
                         Toast.makeText(getActivity(), "Error Saving", Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
 
@@ -135,9 +134,11 @@ public class AddContactFragment extends Fragment implements ChangePhotoDialog.On
     }
 
     private boolean checkStringIfNull(String string){
-        if(string.equals("")){
+        if(string.equals(""))
+        {
             return false;
-        }else{
+        }
+        else {
             return true;
         }
     }

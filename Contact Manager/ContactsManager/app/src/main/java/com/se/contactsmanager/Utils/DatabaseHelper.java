@@ -10,10 +10,11 @@ import com.se.contactsmanager.models.Contact;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    private static DatabaseHelper sInstance;
     private static final String TAG = "DatabaseHelper";
 
-    private static final String DATABASE_NAME = "contacts.db";
-    private static final String TABLE_NAME = "contacts_table";
+    public static final String DATABASE_NAME = "contacts.db";
+    public static final String TABLE_NAME = "contacts_table";
     public static final String COL0 = "ID";
     public static final String COL1 = "NAME";
     public static final String COL2 = "PHONE_NUMBER";

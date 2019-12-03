@@ -20,19 +20,20 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.se.contactsmanager.Utils.ContactListAdapter;
-import com.se.contactsmanager.Utils.DatabaseHelper;
-import com.se.contactsmanager.models.Contact;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
 
+import com.se.contactsmanager.Utils.ContactListAdapter;
+import com.se.contactsmanager.Utils.DatabaseHelper;
+import com.se.contactsmanager.models.Contact;
+
 public class ViewContactsFragment extends Fragment {
 
     private static final String TAG = "ViewContactsFragment";
-    private String testImageURL = "pbs.twimg.com/profile_images/616076655547682816/6gMRtQyY.jpg";
+    private String testImageMale = "https://icon-library.net//images/default-profile-icon/default-profile-icon-18.jpg";
+    private String testImageFemale = "http://www.herzing.ca/wp-content/uploads/2017/03/testimonial-thumbnail-default-female-2-150x150.png";
 
 
 
@@ -120,9 +121,20 @@ public class ViewContactsFragment extends Fragment {
     //
     private void setupContactsManager(){
         final ArrayList<Contact> contacts = new ArrayList<>();
-//        contacts.add(new Contact("Gary the Guy", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-//        contacts.add(new Contact("Mitch Tabian", "(604) 855-1111", "Mobile","mitch@tabian.ca", testImageURL));
-
+        contacts.add(new Contact("John Smith", "(232) 343-2324", "Mobile","jsmith@hotmail.com", testImageMale));
+        contacts.add(new Contact("Harry West", "(346) 643-3452", "Mobile","harryw33@gmail.com", testImageMale));
+        contacts.add(new Contact("Angela Garland", "(643) 543-2467", "Work","garlandiscool@gmail.com", testImageFemale));
+        contacts.add(new Contact("Dominique Wilkins", "(844) 085-2346", "Mobile","dwilk392@yahoo.com", testImageMale));
+        contacts.add(new Contact("Jerry Stone", "(182) 342-5235", "Mobile","j3stone@gmail.com", testImageMale));
+        contacts.add(new Contact("Mitch Robinson", "(865) 086-9564", "Work","robinson3298@yahoo.com", testImageMale));
+        contacts.add(new Contact("Scott Terry", "(927) 493-9744", "Work","scotty493@gmail.com", testImageMale));
+        contacts.add(new Contact("Jessica Glen", "(038) 937-0376", "Work","jdg093@hotmail.com", testImageFemale));
+        contacts.add(new Contact("Mary Anthony", "(973) 408-6372", "Work","mxa493033@utdallas.edu", testImageFemale));
+        contacts.add(new Contact("Emily Cross", "(638) 018-3917", "Mobile","emilycross@gmail.com", testImageFemale));
+        contacts.add(new Contact("Jacob Armstrong", "(673) 163-1728", "Work","armstrong39482@yahoo.com", testImageMale));
+        contacts.add(new Contact("Isaac Feller", "(127) 097-8963", "Mobile","ifeller392@gmail.com", testImageMale));
+        contacts.add(new Contact("Robert Ramsey", "(536) 297-2583", "Work","robram3938@hotmail.com", testImageMale));
+        contacts.add(new Contact("Dave Chapelle", "(903) 321-8927", "Mobile","chapelle9289@gmail.com", testImageMale));
         DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
         Cursor cursor = databaseHelper.getAllContacts();
 

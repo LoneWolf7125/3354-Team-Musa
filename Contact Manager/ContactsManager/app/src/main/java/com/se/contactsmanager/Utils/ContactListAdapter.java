@@ -76,7 +76,6 @@ public class ContactListAdapter extends ArrayAdapter<Contact> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        //---------------------------Stuff to change--------------------------------------------
         String name_ = getItem(position).getName();
         String imagePath = getItem(position).getProfileImage();
         holder.name.setText(name_);
@@ -104,7 +103,6 @@ public class ContactListAdapter extends ArrayAdapter<Contact> {
                 holder.mProgressBar.setVisibility(View.GONE);
             }
         });
-        //--------------------------------------------------------------------------------------
 
         return convertView;
     }
