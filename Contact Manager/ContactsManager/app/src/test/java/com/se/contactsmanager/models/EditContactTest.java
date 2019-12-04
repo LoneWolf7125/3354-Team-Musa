@@ -15,7 +15,7 @@ public class EditContactTest {
     public void setUp(){
         name = "Milan Gulati";
         phoneNumber = "1234567899";
-        device = "android";
+        device = "work";
         email = "milan.gulati@utdallas.edu";
         profileImage = "profile pic";
         milan = new Contact(name, phoneNumber, device, email, profileImage);
