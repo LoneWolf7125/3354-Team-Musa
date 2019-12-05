@@ -11,6 +11,14 @@ public class Contact implements Parcelable{
     private String email;
     private String profileImage;
 
+    public Contact()
+    {
+        this.name = "";
+        this.phonenumber = "";
+        this.device = "";
+        this.email = "";
+        this.profileImage = "";
+    }
     public Contact(String name, String phonenumber, String device, String email, String profileImage) {
         this.name = name;
         this.phonenumber = phonenumber;

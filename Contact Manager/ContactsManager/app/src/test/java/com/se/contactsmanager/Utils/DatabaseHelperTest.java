@@ -80,5 +80,4 @@ public class DatabaseHelperTest extends AndroidTestCase
         assertEquals(mEmail, dbEmail);
         assertEquals(mPhoto, dbPhoto);
     }
-
 }
